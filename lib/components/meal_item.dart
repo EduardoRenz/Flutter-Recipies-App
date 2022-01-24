@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipies/utils/app_routes.dart';
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
@@ -7,7 +8,7 @@ class MealItem extends StatelessWidget {
   MealItem(this.meal);
 
   void _selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed('/meal-detail', arguments: meal);
+    Navigator.of(context).pushNamed(AppRoutes.MEAL_DETAIL, arguments: meal);
   }
 
   @override
