@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'DeliMeals',
       theme: ThemeData(
         primarySwatch: Colors.pink,
-        primaryColor: Colors.amber,
+        primaryColor: Colors.redAccent,
         fontFamily: 'RaleWay',
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
