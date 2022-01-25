@@ -4,16 +4,15 @@ import 'package:recipies/models/settings.dart';
 
 class SettingsScreen extends StatefulWidget {
   final Function(Settings settings) onSettingsChanged;
+  final Settings settings;
 
-  const SettingsScreen(this.onSettingsChanged);
+  const SettingsScreen(this.onSettingsChanged, this.settings);
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  Settings settings = Settings();
-
   Widget _createSwitch(
       String title, String subtitle, bool value, Function(bool) onChanged) {
     return SwitchListTile.adaptive(
@@ -22,7 +21,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         value: value,
         onChanged: (value) {
           onChanged(value);
-          widget.onSettingsChanged(settings);
+          widget.onSettingsChanged(widget.settings);
         });
   }
 
@@ -48,40 +47,40 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 _createSwitch(
                   'Gluten-free',
                   'Only include gluten-free recipes',
-                  settings.isGlutenFree,
+                  widget.settings.isGlutenFree,
                   (newValue) {
                     setState(() {
-                      settings.isGlutenFree = newValue;
+                      widget.settings.isGlutenFree = newValue;
                     });
                   },
                 ),
                 _createSwitch(
                   'Lactose-free',
                   'Only include lactose-free recipes',
-                  settings.isLactoseFree,
+                  widget.settings.isLactoseFree,
                   (newValue) {
                     setState(() {
-                      settings.isLactoseFree = newValue;
+                      widget.settings.isLactoseFree = newValue;
                     });
                   },
                 ),
                 _createSwitch(
                   'Vegetarian',
                   'Only include vegetarian recipes',
-                  settings.isVegetarian,
+                  widget.settings.isVegetarian,
                   (newValue) {
                     setState(() {
-                      settings.isVegetarian = newValue;
+                      widget.settings.isVegetarian = newValue;
                     });
                   },
                 ),
                 _createSwitch(
                   'Vegan',
                   'Only include vegan recipes',
-                  settings.isVegan,
+                  widget.settings.isVegan,
                   (newValue) {
                     setState(() {
-                      settings.isVegan = newValue;
+                      widget.settings.isVegan = newValue;
                     });
                   },
                 ),
